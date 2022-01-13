@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>layui_使用jquery进行数据交互</title>
+    <link rel="stylesheet" href="/static/layui-v2.6.8/layui/css/layui.css" media="all">
+
+</head>
+<body>
+
+
+<div>
+    <form class="layui-form" action="">
+
+
+        <div class="layui-form-item" pane="">
+            <label class="layui-form-label">时间段</label>
+            <div class="layui-input-block">
+                <input type="checkbox" name="like1[week_three_slope]" lay-skin="primary" title="近3周" checked="">
+                <input type="checkbox" name="like1[one_month_slope]" lay-skin="primary" title="近1个月">
+                <input type="checkbox" name="like1[two_month_slope]" lay-skin="primary" title="近2个月">
+                <input type="checkbox" name="like1[three_month_slope]" lay-skin="primary" title="近3个月">
+                <input type="checkbox" name="like1[six_month_slope]" lay-skin="primary" title="近半年">
+                <input type="checkbox" name="like1[nine_month_slope]" lay-skin="primary" title="近9个月">
+                <input type="checkbox" name="like1[twelve_month_slope]" lay-skin="primary" title="近一年">
+            </div>
+        </div>
+
+
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">本周排名</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="this_week_rank" value="week_three_slope" title="0-3000" checked="">
+                    <input type="radio" name="this_week_rank" value="one_month_slope" title="3000-5000">
+                    <input type="radio" name="this_week_rank" value="two_month_slope" title="5000-8000">
+                    <input type="radio" name="this_week_rank" value="three_month_slope" title="8000-12000">
+                    <input type="radio" name="this_week_rank" value="six_month_slope" title="12000-20000">
+                    <input type="radio" name="this_week_rank" value="nine_month_slope" title="20000-30000">
+                    <input type="radio" name="this_week_rank" value="twelve_month_slope" title="30000-50000">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">范围</label>
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="text" name="this_week_rank_min" placeholder=" " autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-mid">-</div>
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="text" name="this_week_rank_max" placeholder=" " autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">上周排名</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="last_week_rank" value="week_three_slope" title="0-3000" checked="">
+                    <input type="radio" name="last_week_rank" value="one_month_slope" title="3000-5000">
+                    <input type="radio" name="last_week_rank" value="two_month_slope" title="5000-8000">
+                    <input type="radio" name="last_week_rank" value="three_month_slope" title="8000-12000">
+                    <input type="radio" name="last_week_rank" value="six_month_slope" title="12000-20000">
+                    <input type="radio" name="last_week_rank" value="nine_month_slope" title="20000-30000">
+                    <input type="radio" name="last_week_rank" value="twelve_month_slope" title="30000-50000">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">范围</label>
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="text" name="last_week_rank_min" placeholder=" " autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-mid">-</div>
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="text" name="last_week_rank_max" placeholder=" " autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">点击集中度</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="this_click_focus" value="week_three_slope" title="0-5%" checked="">
+                    <input type="radio" name="this_click_focus" value="one_month_slope" title="5%-10%">
+                    <input type="radio" name="this_click_focus" value="two_month_slope" title="10%-20%">
+                    <input type="radio" name="this_click_focus" value="three_month_slope" title="20%-30%">
+                    <input type="radio" name="this_click_focus" value="six_month_slope" title="30%-40%">
+                    <input type="radio" name="this_click_focus" value="nine_month_slope" title="40%-50%">
+                    <input type="radio" name="this_click_focus" value="twelve_month_slope" title="50%-70%">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">范围</label>
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="text" name="this_click_focus_min" placeholder="￥" autocomplete="off"
+                           class="layui-input">
+                </div>
+                <div class="layui-form-mid">-</div>
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="text" name="this_click_focus_max" placeholder="￥" autocomplete="off"
+                           class="layui-input">
+                </div>
+            </div>
+
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">转化集中度</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="this_con_focus" value="week_three_slope" title="0-5%" checked="">
+                    <input type="radio" name="this_con_focus" value="one_month_slope" title="5%-10%">
+                    <input type="radio" name="this_con_focus" value="two_month_slope" title="10%-20%">
+                    <input type="radio" name="this_con_focus" value="three_month_slope" title="20%-30%">
+                    <input type="radio" name="this_con_focus" value="six_month_slope" title="30%-40%">
+                    <input type="radio" name="this_con_focus" value="nine_month_slope" title="40%-50%">
+                    <input type="radio" name="this_con_focus" value="twelve_month_slope" title="50%-70%">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">范围</label>
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="text" name="this_con_focus_min" placeholder="￥" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-mid">-</div>
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="text" name="this_con_focus_max" placeholder="￥" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">slope连续降低次数</label>
+                <div class="layui-input-inline">
+                    <input type="tel" name="slope_down_len" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">slope区间值</label>
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="text" name="slope_min" placeholder=" " autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-mid">-</div>
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="text" name="slope_max" placeholder=" " autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">搜索排名连续增加次数</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="rank_down_len" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">输入关键词</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入关键词"
+                           class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">排除关键词标签</label>
+                <div class="layui-input-inline">
+                    <select name="modules" lay-verify="required" lay-search="">
+                        <option value="">直接选择或搜索选择</option>
+                        <option value="1">layer</option>
+                        <option value="2">form</option>
+                        <option value="3">layim</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label">仅看关键词标签</label>
+                <div class="layui-input-inline">
+                    <select name="modules" lay-verify="required" lay-search="">
+                        <option value="">直接选择或搜索选择</option>
+                        <option value="1">layer</option>
+                        <option value="2">form</option>
+                        <option value="20">radio</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button type="submit" class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+
+<table id="demo" lay-filter="test"></table>
+
+
+<script src="/static/layui-v2.6.8/layui/layui.js"></script>
+<!--工具栏模板： 头部工具栏 -->
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="add">添加</button>
+        <button class="layui-btn layui-btn-sm" lay-event="delete">删除</button>
+        <button class="layui-btn layui-btn-sm" lay-event="update">编辑</button>
+    </div>
+</script>
+
+
+<!-- 行工具栏 -->
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+    <a class="layui-btn layui-btn-xs" lay-event="more">更多 <i class="layui-icon layui-icon-down"></i></a>
+</script>
+
+<script>
+
+    // 监听 form表单
+    layui.use('form', function () {
+        var form = layui.form;
+        form.on('submit(*)', function (data) {
+            console.log(data.elem) //被执行事件的元素DOM对象，一般为button对象
+            console.log(data.form) //被执行提交的form对象，一般在存在form标签时才会返回
+            console.log(data.field) //当前容器的全部表单字段，名值对形式：{name: value}
+            return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+        });
+
+    });
+
+
+
+    layui.use('table', function () {
+        var table = layui.table;
+        //第一个实例
+        table.render({
+            elem: '#demo'
+            , height: 500
+            , url: '/table/data' //数据接口
+            , page: true  //开启分页
+            , toolbar: 'default' //开启工具栏，此处显示默认图标，可以自定义模板，详见文档 + 编辑
+            // 这里的宽度可以修改 删掉，直接用 自适应的宽度
+            , cols: [[ //表头
+                {type: 'checkbox', fixed: 'left'}
+                , {field: 'id', title: 'ID', width: 100, sort: true, fixed: 'left',}
+                , {field: 'username', title: '用户名', width: 80, edit: 'text'}
+                , {field: 'sex', title: '性别', width: 80, sort: true}
+                , {field: 'city', title: '城市', width: 80}
+                , {field: 'sign', title: '签名', width: 177}
+                , {field: 'experience', title: '积分', width: 80, sort: true}
+                , {field: 'score', title: '评分', width: 80, sort: true}
+                , {field: 'classify', title: '职业', width: 80}
+                , {field: 'wealth', title: '财富', width: 135, sort: true}
+                , {fixed: 'right', title: '操作', width: 150, align: 'center', toolbar: '#barDemo'}
+            ]]
+        });
+
+
+        //触发事件 头部工具栏
+        table.on('toolbar(test)', function (obj) {
+            var checkStatus = table.checkStatus(obj.config.id);
+            switch (obj.event) {
+                case 'add':
+                    layer.msg('添加');
+                    break;
+                case 'delete':
+                    layer.msg('删除');
+                    break;
+                case 'update':
+                    layer.msg('编辑');
+                    break;
+            }
+        });
+
+        //触发单元格编辑
+        table.on('edit(test)', function (obj) { //注：edit是固定事件名，test是table原始容器的属性 lay-filter="对应的值"
+            console.log(obj.value); //得到修改后的值
+            console.log(obj.field); //当前编辑的字段名
+            console.log(obj.data); //所在行的所有相关数据
+        });
+
+    });
+</script>
+</body>
+</html>
